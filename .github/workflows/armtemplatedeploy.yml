@@ -48,9 +48,9 @@ jobs:
           parameters: ./arm-templates/storageaccount.parameters.json
           deploymentMode: incremental         
           
-      -run: echo ${{steps.storageAccountDeploy.outputs.BlobUri}}
+      -run: echo ${{ steps.storageAccountDeploy.outputs.BlobUri }}
 
-      
+
       # Storage Account using Github Actions
       - name: Deploy Storage Account
         uses: Azure/arm-deploy@v1
