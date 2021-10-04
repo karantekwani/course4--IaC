@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      resource_group_name: rg-stg-githubactions
+      resource_group_name: rg-githubactions
       location: "eastus"
 
     environment:
@@ -93,7 +93,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      resource_group_name: rg-prod-githubactions
+      resource_group_name: rg-githubactions
       location: "eastindia"
 
     environment:
