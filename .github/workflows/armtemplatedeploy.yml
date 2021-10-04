@@ -15,12 +15,12 @@ jobs:
     name: Deploy to staging
     runs-on: ubuntu-latest
 
-  env:
-    resource_group_name: rg-stg-githubactions
-    location: "eastus"
+    env:
+      resource_group_name: rg-stg-githubactions
+      location: "eastus"
 
-  environment:
-    name: staging
+    environment:
+     name: staging
 
     steps:
       - uses: actions/checkout@v2
@@ -100,7 +100,7 @@ jobs:
       name: production
 
     needs: armDeployStaging
-    
+
     steps:
       - uses: actions/checkout@v2
 
