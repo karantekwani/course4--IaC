@@ -1,15 +1,30 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {},
+    "parameters": {
+    "location": {
+        "type": "string",
+        "metadata": {
+            "description": "Enter the location of Resource Group"
+        },
+        "defaultValue": "eastus"
+    },
+    "name": {
+        "type": "string",
+        "metadata": {
+            "description": "Enter the name of Resource Group"
+        },
+        "defaultValue":"githubaction"
+    }
+    },
     "functions": [],
     "variables": {},
     "resources": [
     {
-        "name": "resourceGroup",
+        "name": "[parameters('name')]",
         "type": "Microsoft.Resources/resourceGroups",
         "apiVersion": "2021-04-01",
-        "location": "eastus",
+        "location":"[parameters('location')]",
         "dependsOn": [],
         "tags": {}
     }],
