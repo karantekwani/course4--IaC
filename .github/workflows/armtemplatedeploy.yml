@@ -28,4 +28,8 @@ jobs:
         # Action has an input in key-value pairs
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-        
+        - name: Deploy Resource Group rg-githubactions with AZ CLI
+        uses: Azure/cli@1.0.4
+        with:
+          inlinescript: |
+          az deployment sub create --location "East us" --template-file ./arm-templates/resourcegroup.js on
