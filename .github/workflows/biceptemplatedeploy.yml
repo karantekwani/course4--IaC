@@ -4,6 +4,7 @@ on:
   push:
     branches:
       -main
+  workflow_dispatch:
   
 env:
   subscriptionId: 6109bd4c-4a39-4cac-b2f3-d3aa02570c4e
