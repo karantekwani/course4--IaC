@@ -61,4 +61,4 @@ jobs:
             name=storagestg4571
           deploymentMode: incremental          
 
-        -run: echo ${{steps.storageAccountDeploy.outputs.BlobUri}}
+      -run: echo ${{steps.storageAccountDeploy.outputs.BlobUri}}
