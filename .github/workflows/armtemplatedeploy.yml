@@ -19,12 +19,12 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
         
 
-        # Resource Group using Azure CLI
-      - name: Deploy Resource Group rg-githubactions with AZ CLI
-        uses: Azure/cli@1.0.4
-        with: 
-          inlinescript: |
-            az deployment sub create --location "eastus" --template-file ./arm-templates/resourcegroup.json
+      #   # Resource Group using Azure CLI
+      # - name: Deploy Resource Group rg-githubactions with AZ CLI
+      #   uses: Azure/cli@1.0.4
+      #   with: 
+      #     inlinescript: |
+      #       az deployment sub create --location "eastus" --template-file ./arm-templates/resourcegroup.json
 
         # Resource Group using Github Actions
       # - name: Deploy Resource Group rg-githubactions
@@ -47,18 +47,30 @@ jobs:
       #     parameters: ./arm-templates/storageaccount.parameters.json
       #     deploymentMode: incremental         
           
-      # Storage Account using Github Actions
-      - name: Deploy Storage Account
+      # # Storage Account using Github Actions
+      # - name: Deploy Storage Account
+      #   uses: Azure/arm-deploy@v1
+      #   id: storageAccountDeploy
+      #   with:
+      #     scope: resourcegroup    
+      #     resourceGroupName: rg-githubactions
+      #     subscriptionId: 6109bd4c-4a39-4cac-b2f3-d3aa02570c4e
+      #     template: ./arm-templates/storageaccount.json
+      #     parameters: 
+      #       ./arm-templates/storageaccount.parameters.json
+      #       name=storagestg4571
+      #     deploymentMode: incremental
+
+      # - run: echo ${{ steps.storageAccountDeploy.outputs.BlobUri }}
+
+      # Virtual Machine
+      - name: Deploy Virtual Machine
         uses: Azure/arm-deploy@v1
-        id: storageAccountDeploy
         with:
           scope: resourcegroup    
           resourceGroupName: rg-githubactions
           subscriptionId: 6109bd4c-4a39-4cac-b2f3-d3aa02570c4e
-          template: ./arm-templates/storageaccount.json
+          template: ./arm-templates/virtualmachine.json
           parameters: 
-            ./arm-templates/storageaccount.parameters.json
-            name=storagestg4571
+            adminPassword="My$ecureP@$$word!"
           deploymentMode: incremental
-
-      - run: echo ${{ steps.storageAccountDeploy.outputs.BlobUri }}
