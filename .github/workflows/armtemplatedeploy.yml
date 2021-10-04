@@ -57,5 +57,5 @@ jobs:
           template: ./arm-templates/storageaccount.json
           parameters: 
             ./arm-templates/storageaccount.parameters.json
-            name:storagestg4571
+            name=storagestg4571
           deploymentMode: incremental          
